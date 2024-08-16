@@ -38,3 +38,26 @@ const rollD20 = () => {
 let superAwesomeDiceResult = rollD20();
 
 console.log("Super awesome dice result is: " + superAwesomeDiceResult);
+
+
+
+function rollD20WithAdvantage() {
+    let diceResults = [
+        rollD20(),
+        rollD20()
+    ];
+
+    let highestRoll = 0;
+
+    diceResults.forEach((individualResult) => {
+        if (highestRoll < individualResult) {
+            highestRoll = individualResult;
+        }
+    })
+
+    console.log(diceResults);
+    
+    return highestRoll;
+}
+
+console.log("Rolling 2 D20 with advantage: " + rollD20WithAdvantage());
