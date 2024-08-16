@@ -12,17 +12,29 @@ function rollDice(diceSize = 6) {
     let ceilDiceResult = Math.floor(diceResult);
 
 
-    console.log(diceResult);
+    // console.log(floorDiceResult, ceilDiceResult);
+
+    return floorDiceResult;
 }
 
 
 // rollDice();
-rollDice(20);
+// rollDice(20);
 // rollDice(10000);
 
 // Function that rolls a 6-sided die
+ const rollD6 = () => rollDice(6);
 
-
+ console.log("rollD6 function result is: " + rollD6());
 
 // Function that rolls a 20-sided die
+const rollD20 = () => {
+    // let diceResult = rollDice(20);
+    // return diceResult;
 
+    return rollDice(20);
+}
+
+let superAwesomeDiceResult = rollD20();
+
+console.log("Super awesome dice result is: " + superAwesomeDiceResult);
