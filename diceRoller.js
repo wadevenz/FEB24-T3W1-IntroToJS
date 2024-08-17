@@ -2,10 +2,10 @@
 console.log("Dice roller file loaded.");
 
 // Is a closure, because rollDice is a function
-console.log(rollDice(20));
+// console.log(rollDice(20));
 
 // Not a closure, because rollD20 is a const variable
-console.log(rollD20());
+// console.log(rollD20());
 
 /**
  * Function that rolls a dice
@@ -87,9 +87,38 @@ console.log("Rolling 2 D20 with advantage: " + rollD20WithAdvantage());
 // console.log(tempDiceResults);
 
 // let and var can be changed after declaration
-let diceResulChangeable = rollD20();
-diceResulChangeable = rollD20();
+// let diceResulChangeable = rollD20();
+// diceResulChangeable = rollD20();
 
-// const cannot be changed after declaration
-const diceResulConstant = rollD20()
-diceResulConstant = rollD20();
+// // const cannot be changed after declaration
+// const diceResulConstant = rollD20()
+// diceResulConstant = rollD20();
+
+
+
+const diceRollerSystem = {
+    rollDice: rollDice,
+    rollD20: rollD20,
+    rollD6: rollD6,
+    rollTwentySided: rollD20,
+    advantageD20: rollD20WithAdvantage,
+    nestedStuff: {
+        nestedRollD20: rollD20,
+        someNestedFunction: () => {
+            console.log(this.nestedRollD20);
+            console.log("hello from a function inside a nested object");
+        },
+        someNestedGoodFunction: function() {
+            console.log(this.nestedRollD20());
+            console.log("Hello from the good nested function");
+        }
+    }
+}
+
+console.log("Rolling D20 with advantage and result is: " + diceRollerSystem.advantageD20());
+
+console.log(this);
+console.log(diceRollerSystem.nestedStuff.someNestedGoodFunction());
+console.log(diceRollerSystem.nestedStuff.someNestedFunction());
+console.log(Object.keys(diceRollerSystem));
+console.log(Object.keys(diceRollerSystem.nestedStuff));
