@@ -7,7 +7,11 @@ console.log(rollDice(20));
 // Not a closure, because rollD20 is a const variable
 console.log(rollD20());
 
-// Function that rolls a dice
+/**
+ * Function that rolls a dice
+ * @param {number} [diceSize=6] Maximum dice size to roll
+ * @returns {number}
+ */
 function rollDice(diceSize = 6) {
     console.log("Dice rolling function has been called with a die size of " + diceSize);
 
@@ -27,12 +31,18 @@ function rollDice(diceSize = 6) {
 // rollDice(20);
 // rollDice(10000);
 
-// Function that rolls a 6-sided die
+/**
+ * Function that rolls a 6-sided die
+ * @returns {number}
+ */
  const rollD6 = () => rollDice(6);
 
  console.log("rollD6 function result is: " + rollD6());
 
-// Function that rolls a 20-sided die
+/**
+ * Function that rolls a 20-sided die
+ * @returns {number}
+ */
 const rollD20 = () => {
     // let diceResult = rollDice(20);
     // return diceResult;
@@ -47,6 +57,10 @@ console.log("Super awesome dice result is: " + superAwesomeDiceResult);
 // Declare without assignment
 let diceResults;
 
+/**
+ * Roll two dice, return the highest result
+ * @returns {number}
+ */
 function rollD20WithAdvantage() {
     let tempDiceResults = [
         rollD20(),
