@@ -1,6 +1,11 @@
 
 console.log("Dice roller file loaded.");
 
+// Is a closure, because rollDice is a function
+console.log(rollDice(20));
+
+// Not a closure, because rollD20 is a const variable
+console.log(rollD20());
 
 // Function that rolls a dice
 function rollDice(diceSize = 6) {
@@ -39,25 +44,38 @@ let superAwesomeDiceResult = rollD20();
 
 console.log("Super awesome dice result is: " + superAwesomeDiceResult);
 
-
+// Declare without assignment
+let diceResults;
 
 function rollD20WithAdvantage() {
-    let diceResults = [
+    let tempDiceResults = [
         rollD20(),
         rollD20()
     ];
 
     let highestRoll = 0;
 
-    diceResults.forEach((individualResult) => {
+    tempDiceResults.forEach((individualResult) => {
         if (highestRoll < individualResult) {
             highestRoll = individualResult;
         }
     })
 
-    console.log(diceResults);
+    console.log(tempDiceResults);
     
     return highestRoll;
 }
 
 console.log("Rolling 2 D20 with advantage: " + rollD20WithAdvantage());
+
+// console.log("First roll in advantage rolls is: " + diceResults[0]);
+
+// console.log(tempDiceResults);
+
+// let and var can be changed after declaration
+let diceResulChangeable = rollD20();
+diceResulChangeable = rollD20();
+
+// const cannot be changed after declaration
+const diceResulConstant = rollD20()
+diceResulConstant = rollD20();
